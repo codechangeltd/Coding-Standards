@@ -12,7 +12,7 @@ namespace Sabre.Domain.Sales
 ```
 
 ## Classes & Structs
-Use **PascalCasing** for class and struct names and never use abbreviations. Acronyms are sometimes acceptable if they are well defined, but must follow the pascal casing convention (e.g. HtmlDocument, CssDocument or HttpRequest etc). Make the file name the same as the class name and only put one class or struct in each file.
+Use **PascalCasing** for class and struct names and never use abbreviations. Acronyms are sometimes acceptable if they are well defined, but must follow the pascal casing convention (e.g. HtmlDocument, CssDocument or HttpRequest etc). Use noun or noun phrases to name a class. Make the file name the same as the class name and only put one class or struct in each file.
 
 ```c#
 public class HtmlDocument
@@ -55,7 +55,7 @@ public enum Dockings
 Make the file name the same as the enum name and only put one enum in each file.
 
 ## Interfaces
-The convention for naming interfaces is the same as classes except they must be pre-pended with a capital **I**.
+The convention for naming interfaces is the same as classes except they must be pre-pended with a capital **I**.  Interface names are noun (phrases) or adjectives.
 
 ```c#
 public interface IDictionary
@@ -113,7 +113,15 @@ public DateTime? BirthDate { get; private set; }
 ```
 
 ## Constants
-Follow the same naming conventions as for properties.
+Follow the same naming conventions as for properties. DO NOT use capital letters as this grabs too much attention.
+
+```c#
+// Correct
+public static const string ShippingType = "DropShip";
+ 
+// Avoid
+public static const string SHIPPINGTYPE = "DropShip";
+```
 
 ## Methods
 Use **PascalCasing** for method names and make the name descriptive as to what its purpose is. Make use of the Ubiquitous Language and give an indication of what the method will do and return.
