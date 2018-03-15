@@ -12,7 +12,7 @@ namespace Sabre.Domain.Sales
 ```
 
 ## Classes & Structs
-Use **PascalCasing** for class and struct names and never use abbreviations. Acronyms are sometimes acceptable if they are well defined, but must follow the pascal casing convention (e.g. HtmlDocument, CssDocument or HttpRequest etc).
+Use **PascalCasing** for class and struct names and never use abbreviations. Acronyms are sometimes acceptable if they are well defined, but must follow the pascal casing convention (e.g. HtmlDocument, CssDocument or HttpRequest etc). Make the file name the same as the class name and only put one class or struct in each file.
 
 ```c#
 public class HtmlDocument
@@ -22,6 +22,37 @@ public class HtmlDocument
 ```
 
 Be sure to use the [Ubiquitous Language](https://martinfowler.com/bliki/UbiquitousLanguage.html) when deciding on class or struct names, but try to keep the names short and concise.
+
+## Enums
+Use **PascalCasing** for enum names but DO NOT suffix enum names with **Enum**. Use singular names, except bit field enums.
+
+Why: consistent with the Microsoft's .NET Framework and makes the code more natural to read. Plural flags because enum can hold multiple values (using bitwise 'OR').
+
+```c#
+// Correct
+public enum Color
+{
+    Red,
+    Green,
+    Blue,
+    Yellow,
+    Magenta,
+    Cyan
+}
+ 
+// Exception
+[Flags]
+public enum Dockings
+{
+    None = 0,
+    Top = 1, 
+    Right = 2, 
+    Bottom = 4,
+    Left = 8
+}
+```
+
+Make the file name the same as the enum name and only put one enum in each file.
 
 ## Interfaces
 The convention for naming interfaces is the same as classes except they must be pre-pended with a capital **I**.
